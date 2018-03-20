@@ -1,0 +1,13 @@
+{
+    "fields": {
+       "project":
+       { 
+          "key": "RAT"
+       },
+       "summary": "Creating Issue form REST Automation Framework.",
+       "description": "Creating issue form REST Automation Framework",
+       "issuetype": {
+          "name": "Bug"
+       }
+   }
+}
