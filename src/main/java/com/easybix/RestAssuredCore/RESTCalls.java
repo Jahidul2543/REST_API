@@ -38,17 +38,18 @@ public class RESTCalls {
 		requestSpecification.contentType(ContentType.JSON);
 		requestSpecification.header("cookie", "JSESSIONID=" + sessionID+"");
 		Response response = requestSpecification.post(uRI);
-		log.debug(requestSpecification.log().all());
+		log.debug("Post Request Specifications"+requestSpecification.log().all());
 		return response;
 	}
 	
 
-	public static Response PUTRequest(String uRI, String strJSON) {
+	public static Response PUTRequest(String uRI, String strJSON, String sessionID) {
 		log.info("Inside PUTRequest call");
 		RequestSpecification requestSpecification = RestAssured.given().body(strJSON);
 		requestSpecification.contentType(ContentType.JSON);
+		requestSpecification.header("cookie", "JSESSIONID=" + sessionID+"");
 		Response response = requestSpecification.put(uRI);
-		log.debug(requestSpecification.log().all());
+		log.debug("PUT Request Specifications: "+requestSpecification.log().all());
 		return response;
 	}
 

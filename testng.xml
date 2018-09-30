@@ -9,7 +9,8 @@
 
 	<test name="Test">
 		<classes>
-			<class name="com.easybix.Issue.CreateIssue" />
+			<class name="CreateIssue" />
+
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

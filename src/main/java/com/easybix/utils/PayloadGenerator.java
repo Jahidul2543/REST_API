@@ -12,7 +12,7 @@ public class PayloadGenerator {
 	private static Logger log = LogManager.getLogger(PayloadGenerator.class.getName());
 	public static String generatePayLoadString(String filename){
 		log.info("Inside PayloadConverter function");
-		String filePath = System.getProperty("user.dir")+"\\resources\\"+filename;
+		String filePath = System.getProperty("user.dir")+"/resources/"+filename;
 		try {
 			return new String(Files.readAllBytes(Paths.get(filePath)));
 		} catch (Exception e) {

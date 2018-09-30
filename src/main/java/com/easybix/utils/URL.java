@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 public class URL {
 
 	private static Logger log = LogManager.getLogger(URL.class.getName());
-	public static final String URL = "http://localhost:8080";
+	public static final String URL = "http://localhost:8081";
 	
 	public static String getEndPoint(){
 		log.info("Base URI : " + URL);

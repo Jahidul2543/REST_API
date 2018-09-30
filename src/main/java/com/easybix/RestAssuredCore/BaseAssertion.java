@@ -1,5 +1,6 @@
 package com.easybix.RestAssuredCore;
 
+import io.restassured.path.json.JsonPath;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.Assert;
@@ -10,7 +11,7 @@ import io.restassured.response.Response;
 
 public class BaseAssertion {
 	private static Logger log = LogManager.getLogger(TestUtils.class.getName());
-	
+
 	public static void verifyTrue(boolean flag){
 		Assert.assertTrue(flag);
 	}
@@ -24,6 +25,27 @@ public class BaseAssertion {
 	}
 	
 	public static void verifyStatusMessage(Response response, String status){
-		Assert.assertEquals(TestUtils.getStatusCode(response), status);
+		Assert.assertEquals(TestUtils.getStatusMessage(response), status);
 	}
+	public static void verifyResponseBody(Response response, String responseBody){
+		Assert.assertEquals(TestUtils.getStatusMessage(response), responseBody);
+	}
+	public static void verifyResonseBodyByJsonPath(Response response, String jsonPath, String expectedKeyValue){
+		// First get the JsonPath object instance from the Response interface
+		JsonPath jsonPathEvaluator = response.jsonPath();
+
+		// Then simply query the JsonPath object to get a String value of the node
+		// specified by JsonPath: City (Note: You should not put $. in the Java code)
+		String actualKeyValue  = jsonPathEvaluator.get(jsonPath);
+
+		// Let us print the city variable to see what we got
+		log.info("Actual Key Value received from Response:  " + actualKeyValue);
+
+		// Validate the response
+		Assert.assertEquals(actualKeyValue, expectedKeyValue, "Correct value received in the Response");
+
+		log.info("Response Assertion Successful");
+
+	}
+
 }

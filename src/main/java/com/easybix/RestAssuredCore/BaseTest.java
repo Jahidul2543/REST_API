@@ -19,7 +19,7 @@ public class BaseTest {
 		
 		String endPointURI = URL.getEndPoint("/rest/auth/1/session");
 		response = RESTCalls.POSTRequest(endPointURI, loginPayload);
-		log.info(response.getBody().asString());
+		log.info("Login Response Body: "+response.getBody().asString());
 		String strResponse = TestUtils.getResposeString(response);
 		JsonPath jsonRes = TestUtils.jsonParser(strResponse);
 		String sessionID = jsonRes.getString("session.value");
